@@ -9,7 +9,7 @@ kind: ConfigMap
 metadata:
   name: {{.Values.name}}
 data: 
-  ALLOWED_ORIGINS: {{.Values.env.config.ALLOWED_ORIGINS}}
+  - ALLOWED_ORIGINS: {{.Values.env.config.ALLOWED_ORIGINS}}
 {{- end}}
 
 
