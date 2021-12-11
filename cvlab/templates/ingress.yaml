@@ -14,6 +14,7 @@ spec:
   - http:
       paths:
       - path: /canary/(.*)
+        pathType: ImplementationSpecific
         defaultBackend:
           service.name: {{.Values.name}}-canary
           service.port.name: http-canary
@@ -34,6 +35,7 @@ spec:
   - http:
       paths:
       - path: /api/(.*)
+        pathType: ImplementationSpecific
         defaultBackend:
           service.name: {{.Values.name}}-stable
           service.port.name: http-stable
