@@ -15,9 +15,11 @@ spec:
       paths:
       - path: /canary/(.*)
         pathType: ImplementationSpecific
-        defaultBackend:
-          service.name: {{.Values.name}}-canary
-          service.port.name: http-canary
+        backend:
+          service:
+            name: {{.Values.name}}-canary
+            port:
+              name: http-canary
 ---
 #
 # Ingress targeting stable only, at /api/*
@@ -36,6 +38,8 @@ spec:
       paths:
       - path: /api/(.*)
         pathType: ImplementationSpecific
-        defaultBackend:
-          service.name: {{.Values.name}}-stable
-          service.port.name: http-stable
+        backend:
+          service:
+            name: {{.Values.name}}-stable
+            port:
+              name: http-stable
